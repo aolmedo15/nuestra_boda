@@ -6,10 +6,29 @@ class ItinerarySection extends StatelessWidget {
   const ItinerarySection({super.key});
 
   final List<Map<String, String>> itineraryEvents = const [
-    {"time": "4:30 PM", "title": "Recepción", "desc": "Llegada al lugar mágico y acomodación de nuestros queridos invitados."},
-    {"time": "5:00 PM", "title": "Ceremonia", "desc": "El momento más especial donde daremos nuestro ¡Sí, acepto! frente a todos."},
-    {"time": "6:30 PM", "title": "Cóctel y Brindis", "desc": "Bebidas, comida deliciosa y las primeras fotos como esposos oficiales."},
-    {"time": "8:00 PM", "title": "Cena y Fiesta", "desc": "A disfrutar de una velada inolvidable. ¡A celebrar hasta el amanecer!"},
+    {
+      "time": "4:30 PM",
+      "title": "Recepción",
+      "desc":
+          "Llegada al lugar mágico y acomodación de nuestros queridos invitados.",
+    },
+    {
+      "time": "5:00 PM",
+      "title": "Ceremonia",
+      "desc":
+          "El momento más especial donde daremos nuestro ¡Sí, acepto! frente a todos.",
+    },
+    {
+      "time": "6:30 PM",
+      "title": "Cóctel y Brindis",
+      "desc":
+          "Bebidas, comida deliciosa y las primeras fotos como esposos oficiales.",
+    },
+    {
+      "time": "8:00 PM",
+      "title": "Cena y Fiesta",
+      "desc": "A disfrutar de una velada inolvidable.",
+    },
   ];
 
   @override
@@ -20,7 +39,13 @@ class ItinerarySection extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 20, offset: Offset(0, 10))],
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 20,
+            offset: Offset(0, 10),
+          ),
+        ],
       ),
       child: Column(
         children: [
@@ -40,18 +65,26 @@ class ItinerarySection extends StatelessWidget {
             final isLast = idx == itineraryEvents.length - 1;
 
             return Padding(
-              padding: const EdgeInsets.only(bottom: 0),
-              child: IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildEventCard(event, isLeft, !isLeft),
-                    _buildTimelineCenter(isLast),
-                    _buildEventCard(event, isLeft, isLeft),
-                  ],
-                ),
-              ),
-            ).animate().slideY(begin: 0.2, end: 0, duration: 800.ms, curve: Curves.easeOutCubic).fadeIn();
+                  padding: const EdgeInsets.only(bottom: 0),
+                  child: IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _buildEventCard(event, isLeft, !isLeft),
+                        _buildTimelineCenter(isLast),
+                        _buildEventCard(event, isLeft, isLeft),
+                      ],
+                    ),
+                  ),
+                )
+                .animate()
+                .slideY(
+                  begin: 0.2,
+                  end: 0,
+                  duration: 800.ms,
+                  curve: Curves.easeOutCubic,
+                )
+                .fadeIn();
           }),
         ],
       ),
@@ -92,7 +125,9 @@ class ItinerarySection extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 40),
         child: Column(
-          crossAxisAlignment: isLeft ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment: isLeft
+              ? CrossAxisAlignment.end
+              : CrossAxisAlignment.start,
           children: [
             Text(
               event['time']!,

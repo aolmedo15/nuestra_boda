@@ -6,9 +6,9 @@ class PhotoGallery extends StatelessWidget {
   const PhotoGallery({super.key});
 
   final List<String> imgList = const [
-    'assets/images/couple_hero.png',
-    'assets/images/couple_hands.png',
-    'assets/images/couple_walking.png',
+    'assets/images/boda2.jpeg',
+    'assets/images/boda3.jpeg',
+    'assets/images/boda4.jpeg',
   ];
 
   @override
@@ -35,23 +35,27 @@ class PhotoGallery extends StatelessWidget {
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             viewportFraction: 0.8,
           ),
-          items: imgList.map((item) => Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              image: DecorationImage(
-                image: AssetImage(item),
-                fit: BoxFit.cover,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.15),
-                  blurRadius: 15,
-                  offset: const Offset(0, 8),
-                )
-              ]
-            ),
-          )).toList(),
+          items: imgList
+              .map(
+                (item) => Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    image: DecorationImage(
+                      image: AssetImage(item),
+                      fit: BoxFit.cover,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.15),
+                        blurRadius: 15,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+              .toList(),
         ),
       ],
     );
