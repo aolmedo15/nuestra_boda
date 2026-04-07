@@ -40,7 +40,10 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 10),
                   Text(
                     "Natalia & Jonathan",
-                    style: TextStyle(letterSpacing: 2, color: Color(0xFF8A7968)),
+                    style: TextStyle(
+                      letterSpacing: 2,
+                      color: Color(0xFF8A7968),
+                    ),
                   ),
                 ],
               ),
